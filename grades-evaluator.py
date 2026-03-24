@@ -42,6 +42,18 @@ def evaluate_grades(data):
             print(f"Invalid score in{item['assignment']}: {item['score']}")
             sys.exit(1)
     print("\n--- Processing Grades ---")
+  total_weight = sum(item['weight'] for item in data
+  formative_weight = sum(item['weight'] for item in data if['group'] == 'Formative')
+  summative_weight = sum(item['weight'] for item in data if['group'] == 'Formative')
+  if total_weight != 100:
+        print(f"Error:Total weight is{total_weight},must be 100")
+        sys.exit(1)
+  if formative_weight != 60:
+        print(f"Error: Formative weight is {formative_weight}, must be 60")
+        sys.exit(1)
+  if summative_weight != 40:
+        print(f"Error:Summative weight is {summative_weight}, must be 40")
+        sys.exit(1)
 
     # TODO: a) Check if all scores are percentage based (0-100)
     # TODO: b) Validate total weights (Total=100, Summative=40, Formative=60)
