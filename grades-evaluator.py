@@ -70,13 +70,32 @@ summative_total = sum(item['score'] * (item['weight'] / 100)
 formative_percentage = (formative_total / formative_weight) * 100
 summative_percentage = (summative_total / summative_weight) * 100
 
-  if formative-percentage >= 50 and summative_percentage >= 50:
+  if formative_percentage >= 50 and summative_percentage >= 50:
         status = "PASSED"
   else:
         status = "FAILED"
     print(f"Formative Average:{formative_percentage:.2f}%")
     print(f"Summative Average: {summative_percentage:.2f}%")
     print(f"Final Marks: {status}")
+
+failed_formatives: = [
+     item for item in data
+     if item['group'] == 'Formative' and item['score'] < 50
+     ]
+  if failed_formatives:
+        max_weight = max(item['weight'] for item in failed_formatives)
+     resubmissions = [
+         item['assignment']
+         for item in failed_formatives
+         if item in failed_formatives
+         ]
+
+     print("\nAssignments eligible for resubmission")
+     for r in resubmissions:
+         print(f"- {r}")
+  else:
+        print("\nNo resubmissions required")
+
 
     # TODO: a) Check if all scores are percentage based (0-100)
     # TODO: b) Validate total weights (Total=100, Summative=40, Formative=60)
