@@ -61,6 +61,23 @@ total_grade = 0
 
         print(f"Final Grade : {total_grade :.2f}%")
         print(f"GPA: {gpa}:.2f}")
+    #final grade calculation pass/fail
+formative_total = sum(item['score'] * (item['weight'] / 100)
+                  for item in data if item['group'] == 'Formative')
+summative_total = sum(item['score'] * (item['weight'] / 100)
+                  for item in data if item['group'] == 'Summative')
+# total percentage of formatives and summatives
+formative_percentage = (formative_total / formative_weight) * 100
+summative_percentage = (summative_total / summative_weight) * 100
+
+  if formative-percentage >= 50 and summative_percentage >= 50:
+        status = "PASSED"
+  else:
+        status = "FAILED"
+    print(f"Formative Average:{formative_percentage:.2f}%")
+    print(f"Summative Average: {summative_percentage:.2f}%")
+    print(f"Final Marks: {status}")
+
     # TODO: a) Check if all scores are percentage based (0-100)
     # TODO: b) Validate total weights (Total=100, Summative=40, Formative=60)
     # TODO: c) Calculate the Final Grade and GPA
