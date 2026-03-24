@@ -54,7 +54,13 @@ def evaluate_grades(data):
   if summative_weight != 40:
         print(f"Error:Summative weight is {summative_weight}, must be 40")
         sys.exit(1)
+total_grade = 0
+   for item in data:
+        total_grade = sum([item['score'] * (item['weight'] / 100))
+        gpa = (total_grade / 100) * 5.0
 
+        print(f"Final Grade : {total_grade :.2f}%")
+        print(f"GPA: {gpa}:.2f}")
     # TODO: a) Check if all scores are percentage based (0-100)
     # TODO: b) Validate total weights (Total=100, Summative=40, Formative=60)
     # TODO: c) Calculate the Final Grade and GPA
