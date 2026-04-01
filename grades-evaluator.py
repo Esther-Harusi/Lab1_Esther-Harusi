@@ -41,14 +41,15 @@ def evaluate_grades(data):
         if item['score'] < 0 or item['score'] > 100:
             print(f"Invalid score in{item['assignment']}: {item['score']}")
             sys.exit(1)
-    print("\n--- Processing Grades ---")
-  total_weight = sum(item['weight'] for item in data
-  formative_weight = sum(item['weight'] for item in data if['group'] == 'Formative')
-  summative_weight = sum(item['weight'] for item in data if['group'] == 'Formative')
+            print("\n--- Processing Grades ---")
+total_weight = sum(item['weight'] for itm in data
+                   formative_weight = sum(item['weight'] for item in data if['group'] == 'Formative')
+                summative_weight = sum(item['weight'] for item in data if['group'] == 'Formative')
   if total_weight != 100:
         print(f"Error:Total weight is{total_weight},must be 100")
         sys.exit(1)
-  if formative_weight != 60:
+
+                     if formative_weight != 60:
         print(f"Error: Formative weight is {formative_weight}, must be 60")
         sys.exit(1)
   if summative_weight != 40:
@@ -56,7 +57,7 @@ def evaluate_grades(data):
         sys.exit(1)
 total_grade = 0
    for item in data:
-        total_grade = sum([item['score'] * (item['weight'] / 100))
+        total_grade = sum(item['score'] * (item['weight'] / 100))
         gpa = (total_grade / 100) * 5.0
 
         print(f"Final Grade : {total_grade :.2f}%")
