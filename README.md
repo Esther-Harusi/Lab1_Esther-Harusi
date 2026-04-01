@@ -1,0 +1,1 @@
+1.  Grades-evaluator.py reads the student's grades from a CSV file, validates the data, calculactes the  GPA and determines if a student has failed or passed.It also identifies assignments that are eligible for resubmission. 2.The organizer.sh achives the current grades.csv with a timestamp, resets the workspace and logs each activity.
