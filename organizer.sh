@@ -17,7 +17,7 @@ fi
 Timestamp=$(date +"%Y%m%d-%H%M%S")
 
 Archived_filename="grades_${Timestamp}.csv"
-Archived_path="${Archive_dir}/${Archived_filename}"
+Archived_path="${Archive_dir}${Archived_filename}"
 
 mv "$Original_file" "$Archived_path"
 echo "Archived: '$Original_file'  '$Archived_path'"
